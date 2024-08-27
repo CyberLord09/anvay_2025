@@ -1,9 +1,9 @@
-title: Nighthawk Pages 
+title: Anvay's CSP Page
 description: "Class of 2025"
-owner_name: John Mortensen
-github_username: nighthawkcoders
-github_repo: "student_2025" 
-baseurl: "/student_2025"
+owner_name: Anvay Vahia
+github_username: CyberLord09
+github_repo: "anvay_2025" 
+baseurl: "/anvay_2025"
 future: true
 remote_theme: jekyll/minima
 minima:
