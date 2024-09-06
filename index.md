@@ -6,6 +6,7 @@ hide: true
 image: /images/mario_animation.png
 ---
 <!-- Liquid:  statements -->
+{% include nav/home.html %}
 <!--- Concatenation of site URL to frontmatter image  --->
 {% assign sprite_file = site.baseurl | append: page.image %}
 <!--- Has is a list variable containing mario metadata for sprite --->
@@ -268,19 +269,43 @@ image: /images/mario_animation.png
 -------------------------------------
 
 <div style="background: linear-gradient(to bottom, #260b15, black); padding: 20px; border-radius: 10px;">
-    <p style="color: white; font-size: 18px; text-align: center;"> 
-        My name is Anvay Vahia. I am 14 years old and have been living in San Diego my whole life. My parents are both from India, so this culture is a pretty big part of my life. Outside of school, I really enjoy tennis and the piano. I have been playing the piano since I was 8 or 9 years old. On the other hand, I started tennis only around 2 years ago, but I am really enjoying it. I also participate in this competition called CyberPatriot. This competition is what inspired me to join CSSE. Some of my hobbies include video games, biking, and going go-karting. I also like spending time with friends when I have the time to do so. 
+    <p style="color: white; font-size: 18px;"> 
+        <strong>Name:</strong> Anvay Vahia <br>
+        <strong>Age:</strong> 14 years old <br>
+        <strong>Location:</strong> San Diego (whole life) <br><br>
+
+        <strong>Cultural Background:</strong> <br>
+        - Parents from India <br>
+        - Indian culture is an important part of life <br><br>
+
+        <strong>Interests and Hobbies:</strong> <br>
+        - <strong>Tennis</strong>: <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;- Started playing 2 years ago <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;- Enjoys the sport <br>
+        - <strong>Piano</strong>: <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;- Playing since age 8 or 9 <br><br>
+
+        <strong>Competitions:</strong> <br>
+        - Participates in CyberPatriot <br>
+        - Inspired to join CSSE by this competition <br><br>
+
+        <strong>Other Hobbies:</strong> <br>
+        - Video games <br>
+        - Biking <br>
+        - Go-karting <br><br>
+
+        <strong>Social Life:</strong> <br>
+        - Enjoys spending time with friends when possible
     </p>
 </div>
 
 
+
 <div class="button-div" style="text-align: center; margin-top: 40px;">
-    <button class="cool-button">Login</button>
-    <button class="cool-button">Coding Languages Mini Project</button>
     <a href="https://cyberlord09.github.io/AnvayDNHSCompSci//2023/12/04/PartnerPost.html" target="_blank">
-        <button class="cool-button">CTF</button>
+        <button class="cool-button">Capture-The-Flag Intrest Project</button>
     </a>
-    </div>
+</div>
 
 <style>
 .button-div {
