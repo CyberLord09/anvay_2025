@@ -303,7 +303,7 @@ image: /images/mario_animation.png
 
 <div class="button-div" style="text-align: center; margin-top: 40px;">
     <a href="https://cyberlord09.github.io/AnvayDNHSCompSci//2023/12/04/PartnerPost.html" target="_blank">
-        <button class="cool-button">Capture-The-Flag Intrest Project</button>
+        <button class="cool-button">Capture-The-Flag Interest Project</button>
     </a>
 </div>
 
