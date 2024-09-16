@@ -6,6 +6,7 @@ github_repo: "anvay_2025"
 baseurl: "/anvay_2025"
 future: true
 remote_theme: jekyll/minima
+# remote_theme: pages-themes/dinky@v0.2.0
 minima:
   skin: dark
   social_links:
