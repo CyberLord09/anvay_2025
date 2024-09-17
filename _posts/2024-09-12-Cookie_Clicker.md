@@ -17,6 +17,7 @@ type: hacks
             <div id="cookie" onclick="cookieClick()">
                 <img src="https://media.giphy.com/media/l0u0eiVkW4x0Y/200.gif" width="200px"/>
             </div>
+            <audio id="clickSound" src="{{site.baseurl}}/assets/click.mp3"></audio>
             <p class="cookie-text">Number of Cookies:</p>
             <div id="numbers">0</div>
             <div id="upgradeLevel"></div>
@@ -85,6 +86,7 @@ function cookieClick() {
 
     var numbers = document.getElementById("numbers");
     var upgradeLevel = document.getElementById("upgradeLevel");
+    clickSound.play();
 
     numbers.innerHTML = num;
 
@@ -129,6 +131,15 @@ function getSecretCookies() {
 </script>
 
 <style>
+
+html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -140,9 +151,6 @@ body {
     background: linear-gradient(45deg, #6dd5fa, #2980b9);
     animation: gradient 5s ease infinite;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-align: center;
     color: #fff;
 }
