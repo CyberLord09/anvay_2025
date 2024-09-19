@@ -24,6 +24,24 @@ type: hacks
     display: flex;
     align-items: center;
   }
+  #history-container {
+    margin-top: 20px;
+    background-color: #34495e;
+    padding: 10px;
+    color: #ecf0f1;
+    max-height: 200px;
+    overflow-y: auto;
+    font-size: 18px;
+  }
+
+  #history-list {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  #history-list li {
+    margin-bottom: 10px;
+  }
 </style>
 
 <!-- Add a container for the animation -->
@@ -79,6 +97,15 @@ type: hacks
   </div>
 </div>
 
+<br>
+<button id="clear-history-button">Clear History</button>
+<br>
+
+<div id="history-container">
+  <h3>Calculation History</h3>
+  <ul id="history-list"></ul>
+</div>
+
 <!-- JavaScript (JS) implementation of the calculator. -->
 <script>
   // initialize important variables to manage calculations
@@ -91,6 +118,7 @@ type: hacks
   const operations = document.querySelectorAll(".calculator-operation");
   const clear = document.querySelectorAll(".calculator-clear");
   const equals = document.querySelectorAll(".calculator-equals");
+  const historyList = document.getElementById("history-list");
 
   // Number buttons listener
   numbers.forEach(button => {
@@ -225,7 +253,7 @@ type: hacks
       }
       if (operator !== "Currency") {
         output.innerHTML = result.toString();
-        firstNumber = result;
+        // firstNumber = result;
       }
 
       return result;
@@ -238,12 +266,15 @@ type: hacks
     });
   });
 
-  // Equal action
-  function equal () { // function used when the equals button is clicked; calculates equation and displays it
-      firstNumber = calculate(firstNumber, parseFloat(output.innerHTML));
-      output.innerHTML = firstNumber.toString();
-      nextReady = true;
-  }
+// Equal action
+function equal () {
+  let secondNumber = parseFloat(output.innerHTML); 
+  let result = calculate(firstNumber, secondNumber); // Calculate the result
+  addToHistory(firstNumber, operator, secondNumber, result); // Add correct calculation to history
+  output.innerHTML = result.toString(); // Display the result
+  nextReady = true;
+}
+
 
   // Clear button listener
   clear.forEach(button => {
@@ -274,4 +305,24 @@ type: hacks
       clearCalc();
     }
   }
+
+    // Add to history function
+  function addToHistory(first, operator, second, result) {
+    const historyEntry = `${first} ${operator} ${second} = ${result}`;
+    const li = document.createElement("li");
+    li.textContent = historyEntry;
+    historyList.appendChild(li);
+  }
+
+  // Clear history button listener
+document.getElementById("clear-history-button").addEventListener("click", function() {
+  clearHistory();
+});
+
+// Function to clear the history
+function clearHistory() {
+  const historyList = document.getElementById("history-list");
+  historyList.innerHTML = ""; // Clear the history list by setting its HTML to an empty string
+}
+
 </script>
