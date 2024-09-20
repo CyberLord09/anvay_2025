@@ -5,10 +5,9 @@ description: Cookie Clicker
 type: hacks
 ---
 
-
 <html>
     <head>
-        <title>Shark Bait's Cookie Clicker Game!</title>
+        <title>Anvay's Cookie Clicker Game!</title>
     </head>
 
     <body>
@@ -57,8 +56,14 @@ type: hacks
             <!-- Shop section -->
             <div class="shop-container">
                 <h2>Cookie Shop</h2>
-                <button id="buyPassive" onclick="buyPassiveCookies()">Buy Passive Cookies (10,000 cookies)</button>
-                <p id="passiveInfo">Generates 100 cookies per second.</p>
+                <button id="buyPassive" onclick="buyPassiveCookies()">Buy Passive Cookies (100 cookies)</button>
+                <p id="passiveInfo">Generates 1 cookie per second. Stackable!</p>
+
+                <button id="buyCookieDoubler" onclick="buyCookieDoubler()">Buy Cookie Doubler (5000 cookies)</button>
+                <p id="cookieDoublerInfo">Doubles cookies per click.</p>
+
+                <button id="buyGoldenHand" onclick="buyGoldenHand()">Buy Golden Hand (20000 cookies)</button>
+                <p id="goldenHandInfo">Quadruples cookies per click.</p>
             </div>
             
             <!-- Invisible button for 10,000 cookies -->
@@ -70,9 +75,15 @@ type: hacks
 
 <script>
 var num = 0;
-var passiveCookies = false; // Track if the player has bought passive cookies
+var passiveCookies = 0; // Start with 0 passive cookies
+var cookieDoubler = false; // Track if the player has bought the Cookie Doubler
+var goldenHand = false; // Track if the player has bought the Golden Hand
 var cookiesPerSecond = 0;   // Passive cookies generated per second
-var passivePrice = 10000;   // Cost for passive cookies
+var cookiesPerClick = 1;    // Cookies generated per click
+
+var passivePrice = 100;   // Cost for passive cookies
+var cookieDoublerPrice = 5000; // Cost for Cookie Doubler
+var goldenHandPrice = 20000; // Cost for Golden Hand
 
 window.onload = function () {
     var name = prompt("What is your name?");
@@ -82,7 +93,7 @@ window.onload = function () {
 }
 
 function cookieClick() {
-    num += 1;
+    num += cookiesPerClick;
 
     var numbers = document.getElementById("numbers");
     var upgradeLevel = document.getElementById("upgradeLevel");
@@ -108,15 +119,34 @@ function cookieClick() {
 function buyPassiveCookies() {
     if (num >= passivePrice) {
         num -= passivePrice;
-        passiveCookies = true;
-        cookiesPerSecond = 100; // Set passive cookies per second to 100
-        document.getElementById('buyPassive').disabled = true; // Disable the button after purchase
-        document.getElementById('buyPassive').innerHTML = "Passive Cookies Purchased!";
+        passiveCookies += 1; // Increase the number of passive cookies generated per second
+        cookiesPerSecond += 1;
+        document.getElementById('passiveInfo').innerHTML = "Generates " + passiveCookies + " cookie(s) per second. Stackable!";
+    }
+}
+
+function buyCookieDoubler() {
+    if (num >= cookieDoublerPrice) {
+        num -= cookieDoublerPrice;
+        cookieDoubler = true;
+        cookiesPerClick *= 2; // Double the cookies per click
+        document.getElementById('buyCookieDoubler').disabled = true; // Disable the button after purchase
+        document.getElementById('buyCookieDoubler').innerHTML = "Cookie Doubler Purchased!";
+    }
+}
+
+function buyGoldenHand() {
+    if (num >= goldenHandPrice) {
+        num -= goldenHandPrice;
+        goldenHand = true;
+        cookiesPerClick *= 4; // Quadruple the cookies per click
+        document.getElementById('buyGoldenHand').disabled = true; // Disable the button after purchase
+        document.getElementById('buyGoldenHand').innerHTML = "Golden Hand Purchased!";
     }
 }
 
 function generatePassiveCookies() {
-    if (passiveCookies) {
+    if (passiveCookies > 0) {
         num += cookiesPerSecond;
         document.getElementById("numbers").innerHTML = num;
     }
@@ -234,7 +264,7 @@ td {
     margin-top: 30px;
 }
 
-#buyPassive {
+#buyPassive, #buyCookieDoubler, #buyGoldenHand  {
     font-size: 1.2em;
     padding: 10px 20px;
     background-color: #3498db;
@@ -244,11 +274,7 @@ td {
     border-radius: 10px;
 }
 
-#buyPassive:hover {
-    background-color: #2980b9;
-}
-
-#passiveInfo {
+#passiveInfo, #cookieDoublerInfo, #goldenHandInfo {
     margin-top: 10px;
     font-size: 1.1em;
 }
