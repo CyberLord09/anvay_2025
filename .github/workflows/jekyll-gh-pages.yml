@@ -37,7 +37,9 @@ jobs:
           pip install --upgrade pip  # Upgrade pip to the latest version
           pip install nbconvert  # Install necessary packages
       - name: Execute conversion script
-        run: python scripts/convert_notebooks.py
+        run: |
+          source venv/bin/activate  # Activate the virtual environment
+          python scripts/convert_notebooks.py
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
