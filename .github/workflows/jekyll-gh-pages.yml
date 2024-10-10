@@ -35,9 +35,7 @@ jobs:
           pipx install nbconvert
           # Add any other necessary package installations here
       - name: Execute conversion script
-        run: |
-          source ~/.local/pipx/venvs/nbconvert/bin/activate
-          python scripts/convert_notebooks.py
+        run: pipx run nbconvert python scripts/convert_notebooks.py
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
