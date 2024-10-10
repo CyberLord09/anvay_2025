@@ -36,6 +36,7 @@ jobs:
           source venv/bin/activate  # Activate the virtual environment
           pip install --upgrade pip  # Upgrade pip to the latest version
           pip install nbconvert  # Install necessary packages
+          pip install -r requirements.txt  # Install dependencies
       - name: Execute conversion script
         run: |
           source venv/bin/activate  # Activate the virtual environment
