@@ -32,7 +32,7 @@ jobs:
         uses: actions/configure-pages@v3
       - name: Install dependencies
         run: |
-          pip install nbconvert
+          pipx install nbconvert
           # Add any other necessary package installations here
       - name: Execute conversion script
         run: python scripts/convert_notebooks.py
