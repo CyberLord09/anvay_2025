@@ -99,6 +99,25 @@ def initVotes():
 - In case of duplicate entries, the `IntegrityError` is caught, and the transaction is rolled back.
 - These capabilities allow for efficient testing, recovery, and backup of data.
 
+
+```python
+    @staticmethod
+    def restore(data):
+        restored_classes = {}
+        for vote_data in data:
+            vote = Vote(vote_data['vote_type'], vote_data['user_id'], vote_data['post_id'])
+            vote.create()
+            restored_classes[vote_data['id']] = vote
+            
+        return restored_classes
+```
+
+**Explanation:**
+- Restore votes from a list of dictionaries.
+- data (list): List of dictionaries containing vote data.
+- list: List of restored Vote objects.
+
+
 ---
 
 ## Working with Lists and Dictionaries
