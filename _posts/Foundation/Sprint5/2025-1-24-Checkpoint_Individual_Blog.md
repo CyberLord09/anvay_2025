@@ -75,6 +75,13 @@ Here is an example of testing the `POST /vote` endpoint using Postman:
 - The response confirms the vote was successfully recorded, returning the vote ID and associated details.
 - Postman testing ensures the API behaves as expected and handles edge cases.
 
+
+Error Codes:
+
+![alt text]({{site.baseurl}}/images/image.png)
+
+![alt text]({{site.baseurl}}/images/image-1.png)
+
 ### Database Initialization, Backup, and Restore
 The backend provides functionality for initializing and restoring database states. For example, the `initVotes` function creates initial records:
 
