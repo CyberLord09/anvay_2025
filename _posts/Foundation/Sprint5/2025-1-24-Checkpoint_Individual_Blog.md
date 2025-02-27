@@ -149,7 +149,17 @@ allUsers.forEach(user => {
 Database queries return Python lists for further processing. For example:
 
 ```python
-votes = Vote.query.filter_by(_post_id=post_id).all()
+            # Get post_id from query parameters
+            post_id = request.args.get('post_id')
+            
+            if not post_id:
+                return {'message': 'Post ID is required as a query parameter'}, 400
+
+            # Get all votes for the post
+            votes = Vote.query.filter_by(_post_id=post_id).all()
+            upvotes = [vote.read() for vote in votes if vote._vote_type == 'upvote']
+            downvotes = [vote.read() for vote in votes if vote._vote_type == 'downvote']
+
 ```
 
 **Explanation:**
@@ -215,15 +225,24 @@ class _CRUD(Resource):
 - The `token_required` decorator ensures only authenticated users can access this endpoint.
 
 ### Sequencing, Selection, and Iteration
-The `initializeSections` function illustrates these concepts:
+The `get` function illustrates these concepts:
 
-```javascript
-const voteData = await fetchVoteData();
-for (const section of document.querySelectorAll("section")) {
-    const sectionId = section.id;
-    const isUpvoted = voteData.upvotes.includes(parseInt(sectionId));
-    toggleSectionVisibility(sectionId, !isUpvoted);
-}
+```python
+    class _POST_VOTES(Resource):
+            # Get all votes for the post
+            votes = Vote.query.filter_by(_post_id=post_id).all()
+            upvotes = [vote.read() for vote in votes if vote._vote_type == 'upvote']
+            downvotes = [vote.read() for vote in votes if vote._vote_type == 'downvote']
+
+            result = {
+                "post_id": post_id,
+                "upvote_count": len(upvotes),
+                "downvote_count": len(downvotes),
+                "total_votes": len(votes),
+                "upvotes": upvotes,
+                "downvotes": downvotes
+            }
+            return jsonify(result)
 ```
 
 **Explanation:**
@@ -239,7 +258,15 @@ for (const section of document.querySelectorAll("section")) {
 Endpoints use parameters like `post_id` and `vote_type`, returning JSON responses:
 
 ```python
-return jsonify({ "message": "Vote removed" })
+            result = {
+                "post_id": post_id,
+                "upvote_count": len(upvotes),
+                "downvote_count": len(downvotes),
+                "total_votes": len(votes),
+                "upvotes": upvotes,
+                "downvotes": downvotes
+            }
+            return jsonify(result)
 ```
 
 **Explanation:**
@@ -249,6 +276,16 @@ return jsonify({ "message": "Vote removed" })
 Both normal and error conditions are handled effectively:
 
 ```javascript
+
+            # Validate required fields
+            if not data:
+                return {'message': 'No input data provided'}, 400
+            if 'post_id' not in data:
+                return {'message': 'Post ID is required'}, 400
+            if 'vote_type' not in data or data['vote_type'] not in ['upvote', 'downvote']:
+                return {'message': 'Vote type must be "upvote" or "downvote"'}, 400
+
+                
 if (!response.ok) throw new Error("Vote submission failed");
 ```
 
@@ -262,3 +299,121 @@ if (!response.ok) throw new Error("Vote submission failed");
 Through careful planning and implementation, I fulfilled all project requirements by leveraging API development, frontend integration, and database management. The result is a feature-rich program that is both functional and user-friendly.
 
 ---
+
+
+
+## Key Concepts
+
+-   Computer systems consist of hardware, software, and data that work together to perform specific tasks and solve problems
+-   Networks enable computer systems to communicate and share resources (data, devices, services) with each other
+-   Data transmission involves sending digital data over a communication channel from a sender to a receiver
+-   Protocols are sets of rules that govern how devices communicate and exchange data over a network
+-   Network security measures protect computer systems and data from unauthorized access, use, disclosure, disruption, modification, or destruction
+-   Troubleshooting is the systematic process of identifying, diagnosing, and resolving problems in computer systems and networks
+    -   Involves gathering information, analyzing symptoms, identifying potential causes, and implementing solutions
+-   Computer systems and networks have numerous real-world applications across various industries (healthcare, education, finance, entertainment)
+
+## System Components
+
+-   Hardware refers to the physical components of a computer system that can be touched (motherboard, CPU, RAM, storage devices)
+-   Software is a set of instructions that tells the hardware what to do and how to perform specific tasks
+    -   Includes operating systems (Windows, macOS, Linux), applications, and utilities
+-   Data is the information processed, stored, and transmitted by computer systems
+    -   Can be in various forms such as text, numbers, images, audio, and video
+-   Input devices allow users to enter data and commands into a computer system (keyboard, mouse, touchscreen, microphone)
+-   Output devices present information to users from a computer system (monitor, printer, speakers)
+-   Processing devices perform computations and execute instructions (CPU, GPU)
+-   Storage devices retain data and programs for future use (hard disk drives, solid-state drives, USB flash drives, optical discs)
+
+## Network Fundamentals
+
+-   A network is a group of interconnected devices that can communicate and share resources with each other
+-   Network topology refers to the arrangement and layout of devices and connections in a network
+    -   Common topologies include bus, star, ring, mesh, and tree
+-   Network types can be classified based on size, geographical coverage, and ownership
+    -   Local Area Network (LAN) covers a small area (home, office, school)
+    -   Wide Area Network (WAN) spans a large geographical area (cities, countries, continents)
+-   Network devices facilitate communication and data transfer between connected devices
+    -   Switches connect devices within a network and forward data packets to the intended destination
+    -   Routers connect multiple networks and determine the best path for data packets to reach their destination
+-   Network media refers to the physical channels used to transmit data between devices
+    -   Wired media includes coaxial cables, twisted pair cables, and fiber optic cables
+    -   Wireless media uses radio waves to transmit data (Wi-Fi, Bluetooth, cellular networks)
+
+## Data Transmission
+
+-   Data transmission is the process of sending digital data from one device to another over a communication channel
+-   Bandwidth refers to the maximum amount of data that can be transmitted over a channel in a given period of time
+    -   Measured in bits per second (bps), kilobits per second (Kbps), megabits per second (Mbps), or gigabits per second (Gbps)
+-   Latency is the time delay between the sender transmitting data and the receiver receiving it
+    -   Measured in milliseconds (ms) or seconds (s)
+-   Packet switching is a method of transmitting data over a network by breaking it into smaller units called packets
+    -   Each packet contains a source address, destination address, and a portion of the data being sent
+-   Circuit switching is a method of transmitting data over a network by establishing a dedicated communication channel between the sender and receiver
+    -   Commonly used in traditional telephone networks
+-   Multiplexing techniques allow multiple signals or data streams to be combined and transmitted over a single communication channel
+    -   Time-division multiplexing (TDM) allocates time slots to each data stream
+    -   Frequency-division multiplexing (FDM) assigns different frequency bands to each data stream
+
+## Protocols and Standards
+
+-   Protocols are sets of rules and conventions that govern how devices communicate and exchange data over a network
+-   The Open Systems Interconnection (OSI) model is a conceptual framework that standardizes communication functions in a network
+    -   Consists of seven layers: Physical, Data Link, Network, Transport, Session, Presentation, and Application
+-   The Transmission Control Protocol/Internet Protocol (TCP/IP) is a suite of protocols used in computer networks and the Internet
+    -   Consists of four layers: Network Access, Internet, Transport, and Application
+-   Hypertext Transfer Protocol (HTTP) is an application-layer protocol used for transmitting web pages and other content over the Internet
+-   File Transfer Protocol (FTP) is an application-layer protocol used for transferring files between computers over a network
+-   Simple Mail Transfer Protocol (SMTP) is an application-layer protocol used for sending and receiving email messages
+-   Domain Name System (DNS) is a hierarchical naming system that translates human-readable domain names into IP addresses
+-   Standards organizations develop and maintain protocols and standards to ensure interoperability between devices and networks
+    -   Examples include the Internet Engineering Task Force (IETF), Institute of Electrical and Electronics Engineers (IEEE), and International Organization for Standardization (ISO)
+
+## Security and Privacy
+
+-   Network security involves protecting computer systems, networks, and data from unauthorized access, use, disclosure, disruption, modification, or destruction
+-   Confidentiality ensures that data is accessible only to authorized users and is protected from unauthorized disclosure
+    -   Achieved through encryption, access controls, and secure communication channels
+-   Integrity ensures that data remains accurate, complete, and unaltered during transmission and storage
+    -   Achieved through error detection and correction, digital signatures, and hashing algorithms
+-   Availability ensures that data and resources are accessible to authorized users when needed
+    -   Achieved through redundancy, backup systems, and disaster recovery plans
+-   Authentication is the process of verifying the identity of a user or device before granting access to resources
+    -   Achieved through usernames and passwords, biometric data, digital certificates, and multi-factor authentication
+-   Authorization is the process of granting or denying access to resources based on a user's authenticated identity and permissions
+    -   Achieved through access control lists (ACLs), role-based access control (RBAC), and attribute-based access control (ABAC)
+-   Firewalls are security devices that monitor and control incoming and outgoing network traffic based on predetermined security rules
+    -   Can be hardware-based or software-based
+-   Virtual Private Networks (VPNs) create secure, encrypted connections over public networks (Internet) to protect data privacy and integrity
+
+## Troubleshooting and Maintenance
+
+-   Troubleshooting is the systematic process of identifying, diagnosing, and resolving problems in computer systems and networks
+-   The first step in troubleshooting is to gather information about the problem, including symptoms, error messages, and any recent changes to the system
+-   Next, analyze the information collected to identify potential causes of the problem
+    -   Use a process of elimination to narrow down the list of possible causes
+-   Once the root cause is identified, implement a solution to resolve the problem
+    -   This may involve updating software, replacing hardware components, or modifying configuration settings
+-   After implementing the solution, test the system to ensure that the problem has been resolved and no new issues have been introduced
+-   Document the troubleshooting process, including the problem description, steps taken, and the resolution for future reference
+-   Preventive maintenance involves regularly scheduled tasks to keep computer systems and networks running smoothly and prevent potential problems
+    -   Includes updating software, cleaning hardware components, and performing data backups
+-   Monitoring tools and techniques help detect and diagnose problems before they cause significant disruptions
+    -   Examples include network monitoring software, system logs, and performance metrics
+
+## Real-World Applications
+
+-   Healthcare: Computer systems and networks enable electronic health records (EHRs), telemedicine, and medical imaging
+    -   Facilitates efficient patient care, improves diagnostic accuracy, and enhances collaboration among healthcare providers
+-   Education: Computer systems and networks support online learning platforms, educational resources, and collaborative tools
+    -   Enables distance learning, personalized instruction, and access to a wide range of educational materials
+-   Finance: Computer systems and networks are critical for electronic trading, online banking, and secure financial transactions
+    -   Ensures fast, reliable, and secure processing of financial data and reduces the risk of fraud and errors
+-   Entertainment: Computer systems and networks power streaming services (Netflix, Spotify), online gaming, and social media platforms
+    -   Provides users with on-demand access to a vast library of content and enables interactive experiences and social connections
+-   Transportation: Computer systems and networks enable intelligent transportation systems, GPS navigation, and autonomous vehicles
+    -   Improves traffic management, enhances safety, and optimizes route planning and logistics
+-   Manufacturing: Computer systems and networks support computer-aided design (CAD), computer-aided manufacturing (CAM), and industrial automation
+    -   Increases production efficiency, reduces costs, and improves product quality and consistency
+-   E-commerce: Computer systems and networks are the backbone of online marketplaces (Amazon, eBay) and digital payment systems
+    -   Enables businesses to reach a global customer base, streamlines transactions, and facilitates secure online payments
