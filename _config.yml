@@ -14,6 +14,7 @@ minima:
     - { platform: x, user_url: "https://x.com/NighthawkCoding/" }
     - { platform: youtube, user_url: "https://www.youtube.com/@nighthawkcodingsociety2868" } 
   nav_pages:
+    - navigation/studyblog.md
     - navigation/blog.md
     - navigation/search.md
     - navigation/toolssetup.md
