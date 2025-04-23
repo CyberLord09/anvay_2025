@@ -18,7 +18,7 @@ minima:
     - navigation/blog.md
     - navigation/search.md
     - navigation/toolssetup.md
-    - README4YML.md
+    - navigation/2021mcqblog.md
 
 # remote_theme: pages-themes/midnight@v0.2.0
 # remote_theme: pages-themes/cayman@v0.2.0
