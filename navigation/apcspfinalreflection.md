@@ -18,15 +18,13 @@ This trimester, working on **CrossWise** was a major step forward in both my tec
 | **Skill** | **What I Learned** | **What I Built** |
 |----------|--------------------|------------------|
 | **Full-Stack Development** | Working across both frontend and backend | Built features across Flask APIs and the Jekyll/JS frontend |
-| **Flask & REST APIs** | Creating and securing API endpoints with JSON responses | Routes for video metadata, weather data, map overlays, and JWT login |
-| **Google Maps API** | Integrating external APIs for route and mapping tools | Added border route planning with predicted wait-time overlays |
+| **Flask & REST APIs** | Creating and securing API endpoints with JSON responses | Routes for APIs including the timelapse API |
 | **MoviePy & Video Processing** | Automating video clipping and organization | Script to generate 3x daily time-sliced clips stored by timestamp |
-| **Data Handling** | Processing JSON, CSV, and external API payloads | Merged CBP wait data with historical weather info for analysis |
-| **Chart.js** | Creating interactive data visualizations in the browser | Live graph of traffic/weather synced with video and map layers |
-| **Authentication** | Using JWT, sessions, and facial login methods | Built secure login with role-based access and auto logout logic |
+| **Data Handling** | Processing JSON, CSV, and external API payloads | N/A |
+| **Authentication** | Using JWT, sessions, and facial login methods | N/A |
 | **Frontend Design (HTML/CSS/JS)** | Crafting responsive interfaces with Tailwind & JavaScript | Built the calendar UI, timelapse viewer, and live dashboard |
 | **Git & GitHub Collaboration** | Branching, pull requests, conflict resolution | Worked on feature branches, managed commits, opened/closed issues |
-| **Deployment** | Hosting frontend and backend separately | Static frontend on GitHub Pages; Flask backend on Railway or EC2 |
+| **Deployment** | Hosting frontend and backend separately | Static frontend on GitHub Pages; Flask backend on EC2 |
 
 ---
 
