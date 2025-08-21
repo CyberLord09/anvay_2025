@@ -269,7 +269,7 @@ image: /images/mario_animation.png
 <div style="background: linear-gradient(to bottom, #260b15, black); padding: 20px; border-radius: 10px;">
     <p style="color: white; font-size: 18px;"> 
         <strong>Name:</strong> Anvay Vahia <br>
-        <strong>Age:</strong> 14 years old <br>
+        <strong>Age:</strong> 16 years old <br>
         <strong>Location:</strong> San Diego (whole life) <br><br>
 
         <strong>Cultural Background:</strong> <br>
@@ -282,10 +282,6 @@ image: /images/mario_animation.png
         &nbsp;&nbsp;&nbsp;&nbsp;- Enjoys the sport <br>
         - <strong>Piano</strong>: <br>
         &nbsp;&nbsp;&nbsp;&nbsp;- Playing since age 8 or 9 <br><br>
-
-        <strong>Competitions:</strong> <br>
-        - Participates in CyberPatriot <br>
-        - Inspired to join CSSE by this competition <br><br>
 
         <strong>Other Hobbies:</strong> <br>
         - Video games <br>
