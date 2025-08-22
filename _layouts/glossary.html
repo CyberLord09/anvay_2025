@@ -1,0 +1,69 @@
+---
+layout: base
+---
+
+<div class="glossary-page">
+  <h1 class="post-title">{{ page.title | escape }}</h1>
+  
+  <!-- Blog/Markdown content -->
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  <hr>
+
+  <!-- Glossary Section -->
+  <h2>Glossary</h2>
+  <input type="text" id="glossary-search" placeholder="Search terms..." class="glossary-search">
+
+  <ul id="glossary-list" class="glossary-list">
+    {% for item in page.glossary %}
+      <li class="glossary-item">
+        <strong class="term">{{ item.term }}</strong><br>
+        <span class="definition">{{ item.definition }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const searchInput = document.getElementById("glossary-search");
+  const items = document.querySelectorAll(".glossary-item");
+
+  searchInput.addEventListener("input", function() {
+    const query = searchInput.value.toLowerCase();
+    items.forEach(item => {
+      const text = item.textContent.toLowerCase();
+      item.style.display = text.includes(query) ? "" : "none";
+    });
+  });
+});
+</script>
+
+<style>
+.glossary-page {
+  max-width: 800px;
+  margin: auto;
+}
+
+.glossary-search {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 1rem 0;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.glossary-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.glossary-item {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+</style>
