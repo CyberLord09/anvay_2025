@@ -9,8 +9,6 @@ show_reading_time: false
 
 <img width="1907" height="429" alt="Image" src="https://github.com/user-attachments/assets/130360dc-3e9f-45e3-9382-926f80f4f639" />
 
-# AP CSA Practice Exam 2 – Full Statistical Breakdown
-
 **Total Questions:** 42
 **Total Time:** 1:23:33
 **Average Time per Question:** 1m 59s
