@@ -90,24 +90,7 @@ Although Unit 4 had more total questions, Unit 2 produced disproportionate error
 
 ---
 
-# V. Skill Category Radar Visualization
-
-```mermaid
-radar
-  title Skill Performance Profile
-  "Design Code" : 100
-  "Develop Code" : 79
-  "Analyze Code" : 84
-  "Debug Code" : 100
-  "Explain Behavior" : 75
-  "Societal Impact" : 100
-```
-
-This confirms a strong ability to construct and debug code, with slight instability in behavioral analysis under nested logic.
-
----
-
-# VI. Time Efficiency Modeling
+# V. Time Efficiency Modeling
 
 ### Average Time Per Unit
 
@@ -130,7 +113,7 @@ Unit 2 required the most cognitive load per question.
 
 ---
 
-# VII. Accuracy vs Time Pattern
+# VI. Accuracy vs Time Pattern
 
 Incorrect questions averaged:
 
@@ -152,7 +135,7 @@ Longer time correlated with logical uncertainty, not rushing.
 
 ---
 
-# VIII. Error Taxonomy
+# VII. Error Taxonomy
 
 Errors classified by type:
 
@@ -181,7 +164,7 @@ No category dominates. Errors are precision-based, not knowledge-based.
 
 ---
 
-# IX. Advanced Algorithm Sensitivity Index
+# VIII. Advanced Algorithm Sensitivity Index
 
 To measure algorithmic stability, I calculated:
 
@@ -204,7 +187,7 @@ Recursion improved to 100% from previous exam.
 
 ---
 
-# X. Recursion Performance Growth
+# IX. Recursion Performance Growth
 
 ```mermaid
 xychart-beta
@@ -218,7 +201,7 @@ This reflects conceptual strengthening in stack tracing.
 
 ---
 
-# XI. Comparative Unit Trend vs Exam 1
+# X. Comparative Unit Trend vs Exam 1
 
 ```mermaid
 xychart-beta
@@ -237,7 +220,7 @@ Primary instability: conditional and iteration logic.
 
 ---
 
-# XII. Cognitive Load Map
+# XI. Cognitive Load Map
 
 High Cognitive Load Topics:
 
@@ -253,7 +236,7 @@ Low Cognitive Load Topics:
 
 ---
 
-# XIII. AP Score Projection Model
+# XII. AP Score Projection Model
 
 Using historical AP scoring cutoffs:
 
@@ -278,7 +261,7 @@ pie title AP Score Probability
 
 ---
 
-# XIV. Precision Improvement Plan
+# XIII. Precision Improvement Plan
 
 | Area             | Targeted Drill                      |
 | ---------------- | ----------------------------------- |
@@ -289,7 +272,7 @@ pie title AP Score Probability
 
 ---
 
-# XV. Meta-Analysis
+# XIV. Meta-Analysis
 
 This exam confirms:
 
@@ -302,7 +285,7 @@ The dominant pattern is not misunderstanding — it is momentary logical oversig
 
 ---
 
-# XVI. Final Assessment
+# XV. Final Assessment
 
 Performance is:
 
