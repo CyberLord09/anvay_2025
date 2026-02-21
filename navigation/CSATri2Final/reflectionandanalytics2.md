@@ -7,6 +7,24 @@ comments: true
 show_reading_time: false
 ---
 
+### PRS that show my work:
+
+https://github.com/Open-Coding-Society/flask/pull/28
+
+https://github.com/Open-Coding-Society/spring/pull/75 (only look at the analytics part)
+
+https://github.com/Open-Coding-Society/spring/pull/67/changes (security)
+
+https://github.com/Open-Coding-Society/spring/pull/29/changes
+
+https://github.com/Open-Coding-Society/pages/pull/488/changes
+
+
+<img width="456" height="236" alt="Image" src="https://github.com/user-attachments/assets/c8f8c794-6f4a-40ee-b151-325b71bc9352" />
+- top 5 contriubtor on pages
+
+
+
 ## Comparing Myself to the Beginning of the Trimester
 
 At the beginning of this trimester, I approached projects mainly from a feature-based mindset. My goal was usually to make something work as quickly as possible. If the code ran and the UI looked fine, I considered it complete. However, I did not always think deeply about structure, long-term organization, or how different systems connected together.
